@@ -2,7 +2,7 @@ package com.hmdp.service.impl;
 
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.hmdp.constant.RedisKeyConstants;
+import com.hmdp.constant.RedisConstants;
 import com.hmdp.entity.ShopType;
 import com.hmdp.mapper.ShopTypeMapper;
 import com.hmdp.service.IShopTypeService;
@@ -31,7 +31,7 @@ public class ShopTypeServiceImpl extends ServiceImpl<ShopTypeMapper, ShopType> i
     private StringRedisTemplate stringRedisTemplate;
 
     public List<ShopType>  getShopTypeList(){
-        String key = RedisKeyConstants.SHOP_TYPE_PER_FIX;
+        String key = RedisConstants.SHOP_TYPE_PER_FIX;
         String shopTypeString = stringRedisTemplate.opsForValue().get(key);
         List<ShopType> shopTypes;
         if (Objects.nonNull(shopTypeString)){

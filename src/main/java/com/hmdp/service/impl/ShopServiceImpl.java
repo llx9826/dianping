@@ -3,7 +3,7 @@ package com.hmdp.service.impl;
 import cn.hutool.core.convert.ConvertException;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.hmdp.constant.RedisKeyConstants;
+import com.hmdp.constant.RedisConstants;
 import com.hmdp.entity.Shop;
 import com.hmdp.mapper.ShopMapper;
 import com.hmdp.service.IShopService;
@@ -33,7 +33,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
     private StringRedisTemplate stringRedisTemplate;
 
     public Shop getShopById(Long id){
-        String key = RedisKeyConstants.SHOP_PRE_FIX + id;
+        String key = RedisConstants.SHOP_PRE_FIX + id;
         String shopString = stringRedisTemplate.opsForValue().get(key);
         Shop shop;
         if (Objects.nonNull(shopString)){
