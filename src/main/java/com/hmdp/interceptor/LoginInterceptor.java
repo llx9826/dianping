@@ -1,6 +1,6 @@
 package com.hmdp.interceptor;
 
-import com.hmdp.utils.UserHolder;
+import com.hmdp.holder.UserHolder;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
